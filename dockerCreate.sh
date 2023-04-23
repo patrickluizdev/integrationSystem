@@ -24,7 +24,7 @@ EOF
   #
   echo -e "\n"$(pwd)"/dockerfile\n"
   echo "dockerfile criado com sucesso!"
-  echo -e "/n ................................... /n"
+  echo -e "\n ................................... \n"
 }
 
 # Função para build da imagem
@@ -54,7 +54,7 @@ start_container() {
 echo -e "\n ...................................\n Iniciando a Criação do Seu Container Docker \n ................................... \n"
 # FUNÇÕES     ###############
 {
-create_dockerfile
-build_image
-start_container
+  create_dockerfile
+  build_image
+  start_container
 }
