@@ -19,6 +19,7 @@ define_directory(){
   if [[ "$confirm" == "y" ]]; then
     echo -e "\n Sua pasta compartilhada será configurada como a pasta atual.\n "
     echo -e "\n DIRETORIO DE COMPARTILHAMENTO DE ARQUIVOS $DIR_MOUNT \n"
+    mkdir app
     DIR_MOUNT="$(pwd)/app"    # DIRETORIO DE COMPARTILHAMENTO DE ARQUIVOS
     echo -e "\n DIRETORIO DO CONTAINER ("VERIFICAR NA DOCUMENTAÇÃO") \n"
     read -p "Defina o diretorio do container que será compartilhado (utilize / para todo container (não aconcelhavel))" TARGET
