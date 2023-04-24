@@ -14,8 +14,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 # Instalando Laravel ...
 RUN php composer.phar create-project laravel/laravel laravel
 
-EXPOSE 8000
+EXPOSE 8080
 
 ENTRYPOINT [ "php", "laravel/artisan", "serve"]
 
+#php artisan serve --help
 CMD ["--port=8080" ]
