@@ -7,13 +7,13 @@
 ### Serviços disponíveis
 
 #### PHP Laravel
-##### http://191.96.251.36:8000
+##### https://hub.docker.com/repository/docker/jatabara/laravel/general
 
 #### Node
-##### http://191.96.251.36:3000
+##### https://hub.docker.com/repository/docker/jatabara/hellonode/general
 
 #### PHP Laravel - Nginx Reverse Proxy
-##### http://191.96.251.36:6060
+##### https://github.com/patrickluizdev/integrationSystem/blob/main/laravelCompose/docker-compose.yml
 
 
 ### Imagens Dockerhub

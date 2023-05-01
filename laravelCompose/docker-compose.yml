@@ -1,19 +1,25 @@
 version: '3'
 
 services:
-
   laravel:
+    build: 
+      context: ../phpLaravel
+      dockerfile: Dockerfile.prod
     image: jatabara/laravel:prod
     container_name: laravel
     networks:
       - laranet
   nginx:
+    build: 
+      context: ../nginxLaravel
+      dockerfile: Dockerfile.prod
     image: jatabara/nginx:prod
     container_name: nginx
     networks:
       - laranet
     ports:
-      - "6060:80"
+      - "8080:80"
+
 networks:
   laranet:
-    driver: brigde
+    driver: bridge
