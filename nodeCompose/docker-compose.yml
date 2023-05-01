@@ -1,14 +1,27 @@
 version: '3'
 
 services:
-  db:
+  app:
+    build: 
+      context: ../nodeExpress
+      dockerfile: Dockerfile
+    image: jatabara/hellonode:prod
+    container_name: app
+    networks:
+      - nodenet
+    ports:
+      - "4000:3000"
+
+  db: 
     image: mysql:5.7
     command: --innodb-use-native-aio=0
     container_name: db
     restart: always
     tty: true
+    mem_limit: 128m
+    cpu_shares: 15
     volumes:
-      - ${pwd}/mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=jatabara

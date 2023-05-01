@@ -14,4 +14,5 @@ RUN npm install
 EXPOSE 3000
 
 # Define o comando para iniciar a aplicação
-CMD ["node", "index.js"]
+ENTRYPOINT [ "node", "index.js" ]
+# CMD ["node", "index.js"]
