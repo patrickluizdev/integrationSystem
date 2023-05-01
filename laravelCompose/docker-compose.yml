@@ -4,12 +4,12 @@ services:
 
   laravel:
     image: jatabara/laravel:prod
-    container_name: laravelDc
+    container_name: laravel
     networks:
       - laranet
   nginx:
     image: jatabara/nginx:prod
-    container_name: nginxDc
+    container_name: nginx
     networks:
       - laranet
     ports:
