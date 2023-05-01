@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  laravel:
+    image: jatabara/laravel:prod
+    container_name: laravelDc
+    networks:
+      - laranet
+  nginx:
+    image: jatabara/nginx:prod
+    container_name: nginxDc
+    networks:
+      - laranet
+    ports:
+      - "6060:80"
+networks:
+  laranet:
+    driver: brigde
