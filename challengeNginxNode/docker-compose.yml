@@ -1,6 +1,20 @@
 version: '3'
 
 services:
+  nginx:
+    build: 
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: nginx
+    restart: always
+    tty: true
+    networks:
+      - nodenet
+    ports:
+      - "8080:80"
+    depends_on:
+      - app
+
   app:
     build: 
       context: .
@@ -8,16 +22,18 @@ services:
     volumes:
       - ./node:/usr/src/app
     container_name: app
-    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
+    entrypoint: sh -c "dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh && node index.js"
     tty: true
     cpu_shares: 10
     restart: always
     networks:
       - nodenet
     ports:
-      - "4000:3000"
+      - "3000:3000"
     depends_on:
       - db
+    command: node index.js
+
 
 
   db: 

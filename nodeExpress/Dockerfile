@@ -4,6 +4,9 @@ FROM node:14-alpine
 # Define o diretório de trabalho da aplicação dentro do container
 WORKDIR /usr/src/app
 
+# VOLUME [ "./:/usr/src/app" ]
+
+
 # Copia o arquivo package.json para o diretório de trabalho
 COPY . .
 
