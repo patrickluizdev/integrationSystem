@@ -22,7 +22,7 @@ services:
     volumes:
       - ./node:/usr/src/app
     container_name: app
-    entrypoint: sh -c "dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh && node index.js"
+    # entrypoint: node index.js"
     tty: true
     cpu_shares: 10
     restart: always
@@ -32,8 +32,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
-    command: node index.js
-
 
 
   db: 
@@ -42,8 +40,8 @@ services:
     container_name: db
     restart: always
     tty: true
-    mem_limit: 124m
-    cpu_shares: 10
+    mem_limit: 152m
+    cpu_shares: 15
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
